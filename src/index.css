@@ -31,6 +31,8 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -56,6 +58,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  /* text-align: center; */
+  /* vertical-align: middle; */
 }
 
 button:hover {
@@ -76,11 +80,11 @@ button:focus-visible {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* min-height: 100vh; */
+  /* width: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
 }
 
 /* .card {
