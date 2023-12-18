@@ -1,13 +1,14 @@
+import { NavLink } from "react-router-dom";
+
 export default function Menu() {
   return (
     <nav>
-      <ol>
-        <li>Introducción</li>
-        <li>Pre-Instalación</li>
-        <li>Post-Instalación</li>
-        <li>Extras</li>
-        <li>Solución de Problemas</li>
-      </ol>
+      <NavLink to="/intro" className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""}>Introducción</NavLink>
+      <NavLink to="/preinstall">Pre-Instalación</NavLink>
+      <NavLink to="/postinstall">Post-Instalación</NavLink>
+      <NavLink to="/extras">Extras</NavLink>
+      <NavLink to="/fixes">Solución de Problemas</NavLink>
     </nav>
   );
 }
