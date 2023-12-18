@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Intro from "./pages/Intro.jsx";
 import PreInstall from "./pages/PreInstall.jsx";
@@ -6,7 +6,7 @@ import PostInstall from "./pages/PostInstall.jsx";
 import Extras from "./pages/Extras.jsx";
 import Fixes from "./pages/Fixes.jsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Home />
@@ -35,4 +35,5 @@ const router = createBrowserRouter([
 
 export default function App() {
   return <RouterProvider router={router} />;
+  // return <HashRouter router={router} />;
 }

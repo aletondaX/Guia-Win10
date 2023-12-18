@@ -7,9 +7,9 @@ export default function Home() {
 
       <h2>Una guía completa para la instalación, configuración y optimización de Windows 10</h2>
 
-      <img id="logo" src="/logo.png" alt="" />
-
-      <button className="btn-start"><Link to="/intro">Comenzar</Link></button>
+      <img id="logo" src="logo.png" alt="" />
+      
+      <Link to="/intro" className="btn-start">Comenzar</Link>
     </div>
   );
 }
