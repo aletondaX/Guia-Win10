@@ -8,26 +8,37 @@ export default function Intro() {
         <main>
           <h1>Bienvenidos!</h1>
           <p>Este sitio web fue realizado para complementar el siguiente video:</p>
-          <iframe width="700" height="400" src="https://www.youtube.com/embed/2RC1d4_dW3Q?si=X0_QcrIlw9NpZf0L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          {/* <br /> */}
+          <p><em><a href="http://www.youtube.com/watch?v=2RC1d4_dW3Q" target="_blank">http://www.youtube.com/watch?v=2RC1d4_dW3Q <img className="img-link" src="ext-link.png"/> <img className="img-yt" src="yt.png"/></a></em></p>
+          <iframe width="500" height="300" src="https://www.youtube.com/embed/2RC1d4_dW3Q?si=X0_QcrIlw9NpZf0L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <hr />
+          {/* <h2>Actualizaciones</h2> */}
+          {/* <p>17-05-2024</p> */}
+          {/* <ul> */}
+            {/* <li>Es mi cumple</li> */}
+          {/* </ul> */}
+          {/* <br /> */}
+          {/* <hr /> */}
 
           <h2>El Diagnóstico</h2>
           <p>Con cada lanzamiento de una versión de Windows, el SO se volvió cada vez más intrusivo/invasivo para el usuario. Esto se traduce básicamente en dos cosas:</p>
           <ul>
-            <li>Windows realizando tareas que el usuario nunca pidió, muchas veces en momentos inoportunos para el usuario.</li>
-            <li>Windows interviniendo en la intención del usuario. Por ejemplo, impidiendo descargas o bloqueando el borrado de archivos.</li>
+            <li>Windows realizando tareas que el usuario nunca pidió, muchas veces en momentos inoportunos para el mismo.</li>
+            <li>Windows interviniendo en la intención del usuario. Por ejemplo, impidiendo descargas o bloqueando la eliminación de archivos.</li>
           </ul>
           <p>Por esto y más, considero que Windows 7 fue la última buena versión de Windows.</p>
 
           <h2>El Objetivo</h2>
-          <p>El objetivo de esta guía es ir removiendo aspectos negativos de Windows 10, obteniendo como resultado un sistema operativo con un comportamiento mucho más similar al de Windows 7, pero con la compatibilidad para software y hardware que Windows 10 posée.</p>
+          <p>El objetivo de esta guía es ir removiendo aspectos negativos de Windows 10, obteniendo como resultado un sistema operativo con un comportamiento mucho más similar al de Windows 7, manteniendo la compatibilidad para hardware y software que Windows 10 posée.</p>
 
           <h2>Ya existen otras guías...</h2>
           <p>Existen varias guías y muy buenas. La diferencia está en que:</p>
           <ul>
             <li>Vamos a usar una edición particular de Windows.</li>
-            <li>Vamos a recortar la imágen de instalación de Windows removiendo algunos componentes.</li>
-            <li>Vamos a usar una selección de aplicaciones de personalización y scripts de configuración. (tanto míos como de terceros)</li>
-            <li>Vas a conocer una serie de recursos y aplicaciones útiles que tal vez no conocías.</li>
+            <li>Vamos a recortar la imágen de instalación removiendo algunos componentes, logrando nuestra propia "ISO Custom".</li>
+            <li>Vamos a usar una selección de aplicaciones de personalización y scripts de configuración, tanto míos como de terceros.</li>
+            <li>Vas a conocer una serie de técnicas, recursos y aplicaciones útiles que tal vez no conocías.</li>
           </ul>
 
           <h2>¿Por qué reinstalar Windows y comenzar de cero?</h2>
@@ -44,9 +55,9 @@ export default function Intro() {
           <p>Pese a ser orientada a empresas, fuera del uso de la Store no hay nada que no podamos hacer. Es básicamente una versión mucho menos cargada de Windows.</p>
 
           <h2>Windows Defender</h2>
-          <p>En pocas palabras, las "soluciones antivirus" y el performance son por lo general dos cosas mutuamente exclusivas. Más allá de ser incompatibles con el performance, en muchos casos son intrusivas, al punto en que el perjuicio que hacen termina siendo mucho mayor que el supuesto beneficio que pueden llegar a traer.</p>
+          <p>En pocas palabras, las "soluciones antivirus" y el performance son por lo general dos cosas mutuamente exclusivas. Además de ser incompatibles con el performance, en muchos casos son intrusivas, al punto en que su perjuicio termina siendo mucho mayor a su supuesto beneficio.</p>
           <p>En esta guía usaremos NTLite para, entre otras cosas, remover Windows Defender previo a la instalación.</p>
-          <br />
+          
           <br />
           <br />
         </main>

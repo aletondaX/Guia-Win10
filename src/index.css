@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 :root {
@@ -38,6 +39,7 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   margin: 2rem;
+  /* padding: 2rem; */
 }
 
 h2 {
@@ -126,12 +128,17 @@ hr {
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  /* scroll-snap-type: y mandatory; */
 }
 
 main {
   /* border: 2px solid red; */
   width: 75%;
   height: 100vh;
+}
+
+main h2, main h1 {
+  scroll-snap-align: start;
 }
 
 main p {
@@ -163,4 +170,69 @@ main a {
   margin-left: 1px;
   position: relative;
   top: 2px;
+}
+
+.img-yt {
+  width: 32px;
+  margin-left: 1px;
+  position: relative;
+  top: 10px;
+}
+
+.click-to-expand {
+  /* font-size: small; */
+  font-size: 0.9rem;
+  position: relative;
+  /* top: 1rem; */
+}
+
+.colapsible {
+  /* border: 1px solid red; */
+  border-radius: 4px;
+  transition: 0.3s;
+  /* opacity: 1; */
+  /* max-height: 100vh; */
+  overflow-y: hidden;
+  margin-bottom: 6px;
+}
+
+.colapsible h2 {
+  cursor: pointer;
+  width: fit-content;
+  /* padding: 0px 8px 16px 8px; */
+  /* transition: 0.3s; */
+}
+
+.colapsible p{
+  transition: 0.3s;
+}
+
+/* .colapsible h2:hover {
+  background-color: #2f263f;
+  border-radius: 4px;
+} */
+
+.open {
+  /* border: 1px solid rgba(141, 141, 141, 0.26); */
+  background-color: #2f263f;
+  /* height: 12rem; */
+  /* max-height: 12rem; */
+  padding-bottom: 16px;
+  padding: 0px 10px 16px 10px;
+}
+
+.closed {
+  /* border: 1px solid blue; */
+  /* max-height: 4rem; */
+  /* overflow-y: hidden; */
+  line-height: 0;
+}
+
+.closed p, .closed br {
+  font-size: 0%;
+}
+
+.closed h2 {
+  /* width: fit-content; */
+  padding: 3px 10px;
 }

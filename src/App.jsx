@@ -5,6 +5,7 @@ import PreInstall from "./pages/PreInstall.jsx";
 import PostInstall from "./pages/PostInstall.jsx";
 import Extras from "./pages/Extras.jsx";
 import Fixes from "./pages/Fixes.jsx";
+import AcercaDe from "./pages/AcercaDe.jsx";
 
 const router = createHashRouter([
   {
@@ -30,6 +31,10 @@ const router = createHashRouter([
   {
     path: "/fixes",
     element: <Fixes />
+  },
+  {
+    path: "/acerca",
+    element: <AcercaDe />
   }
 ]);
 

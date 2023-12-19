@@ -6,7 +6,7 @@ export default function Extras() {
       <Menu />
       <div className="main-container">
         <main>
-          <h2>Extras</h2>
+          <h1>Extras</h1>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate fugiat commodi, repudiandae at et debitis consequatur quidem obcaecati beatae impedit a earum. Saepe tenetur iste accusamus, repellendus iure nam? Illo!</p>
         </main>
       </div>
