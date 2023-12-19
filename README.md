@@ -1,8 +1,10 @@
 # Guía de Windows 10
 
-Repositorio para el sitio web que complementa el video de instalación, configuración y optimización de Windows 10. ![logo-w10](./public/logo.png)
+![logo-w10](./public/logo2.png)
 
-El video en cuestión se encuentra [aquí](www.youtube.com)
+Repositorio para el sitio web que complementa el video de instalación, configuración y optimización de Windows 10.
+
+El video en cuestión se encuentra [aquí](http://www.youtube.com/watch?v=2RC1d4_dW3Q)
 
 El sitio se encuentra publicado [aquí](https://aletondax.github.io/Guia-Win10/)
 

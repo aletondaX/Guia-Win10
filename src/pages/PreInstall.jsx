@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Menu from "../components/Menu.jsx";
+import { Link } from "react-router-dom";
 
-const CHECKS = 3;
+const CHECKS = 4;
 const checksArray = new Array(CHECKS).fill(false);
 
 export default function PreInstall() {
@@ -12,6 +13,8 @@ export default function PreInstall() {
     setChecks([...checks]);
   }
 
+  // console.log(checks);
+
   return (
     <div className="container">
       <Menu />
@@ -20,10 +23,10 @@ export default function PreInstall() {
           <h1>Pre-Instalación</h1>
 
           <h2>Windows 10 LTSC</h2>
-          <p>Descargar Windows 10 LTSC desde el <a href="http://www.microsoft.com/es-es/evalcenter/download-windows-10-enterprise" target="_blank" onClick={() => setCheck(0)}>sitio oficial <img className="img-link" src="ext-link.png"/></a> de Microsoft. {checks[0] ? <img className="img-ok" src="ok.png"/> : <></>}</p>
+          <p>Descargar Windows 10 LTSC desde el <Link to="http://www.microsoft.com/es-es/evalcenter/download-windows-10-enterprise" target="_blank" onClick={()=>setCheck(0)}>sitio oficial <img className="img-link" src="ext-link.png"/></Link> de Microsoft. {checks[0]?<img className="img-ok" src="ok.png"/>:<></>}</p>
 
           <h2>NTLite (Parte 1)</h2>
-          <p>Descargar <a href="https://www.ntlite.com/download/" target="_blank" onClick={() => setCheck(1)}>NTLite <img className="img-link" src="ext-link.png"/></a> {checks[1] ? <img className="img-ok" src="ok.png"/> : <></>}</p>
+          <p>Descargar <Link to="https://www.ntlite.com/download/" target="_blank" onClick={()=>setCheck(1)}>NTLite <img className="img-link" src="ext-link.png"/></Link> {checks[1]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <p>Descargar este archivo <a href="NTLite - Integrar Alto Rendimiento.reg" download onClick={() => setCheck(2)}>.reg</a> que vamos a integrar a nuestra ISO. {checks[2] ? <img className="img-ok" src="ok.png"/> : <></>}</p>
           <p>Instalar y configurar NTLite.</p>
           <p>Extraer la imagen ISO de Windows en una carpeta.</p>
@@ -37,7 +40,7 @@ export default function PreInstall() {
           {/* <p>Alternativamente, pueden usar mi preset de LTSC para NTLite.</p> */}
 
           <h2>Rufus</h2>
-          <p>Descargar Rufus</p>
+          <p>Descargar <Link to="https://rufus.ie/downloads/" target="_blank" onClick={()=>setCheck(3)}>Rufus <img className="img-link" src="ext-link.png"/></Link> {checks[3]?<img className="img-ok" src="ok.png"/>:<></>}</p>
 
           <h2>Accesos Directos</h2>
           <p>Descargar Accesos Directos</p>

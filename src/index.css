@@ -56,13 +56,19 @@ p {
 .btn-start {
   border-radius: 8px;
   border: 1px solid transparent;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   padding: 0.5rem 1.4rem;
   font-size: 1.4rem;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   transition: 0.25s;
+  opacity: 0;
+  animation-name: opacityOn;
+  animation-duration: 2.5s;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 
 .btn-start:hover {
@@ -84,9 +90,47 @@ p {
   justify-content: center;
 }
 
+.hero h1 {
+  opacity: 0;
+  animation-name: opacityOn;
+  animation-duration: 1.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+.hero h2 {
+  opacity: 0;
+  animation-name: opacityOn;
+  animation-duration: 1.5s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
 #logo {
   width: 64px;
   margin: 2rem;
+  opacity: 0;
+  animation-name: opacityOn;
+  animation-duration: 2.5s;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+#logo-container {
+  width: 128px;
+  height: 128px;
+}
+
+@keyframes opacityOn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
 }
 
 .container {
@@ -111,7 +155,7 @@ nav a {
 }
 
 .active {
-  background-color: rgb(65, 65, 65);
+  background-color: #332945;
   border-radius: 4px;
   padding: 2px 10px;
 }
@@ -134,7 +178,14 @@ hr {
 main {
   /* border: 2px solid red; */
   width: 75%;
+  max-width: 1100px;
   height: 100vh;
+}
+
+main h1 {
+  /* text-align: center; */
+  /* margin-left: 1rem; */
+  text-decoration: underline;
 }
 
 main h2, main h1 {
@@ -180,20 +231,21 @@ main a {
 }
 
 .click-to-expand {
-  /* font-size: small; */
   font-size: 0.9rem;
   position: relative;
-  /* top: 1rem; */
+  top: 1px;
+  /* left: 6px; */
 }
 
 .colapsible {
-  /* border: 1px solid red; */
   border-radius: 4px;
   transition: 0.3s;
-  /* opacity: 1; */
-  /* max-height: 100vh; */
   overflow-y: hidden;
   margin-bottom: 6px;
+}
+
+.colapsible *{
+  transition: 0.3s;
 }
 
 .colapsible h2 {
@@ -201,10 +253,6 @@ main a {
   width: fit-content;
   /* padding: 0px 8px 16px 8px; */
   /* transition: 0.3s; */
-}
-
-.colapsible p{
-  transition: 0.3s;
 }
 
 /* .colapsible h2:hover {
@@ -217,8 +265,12 @@ main a {
   background-color: #2f263f;
   /* height: 12rem; */
   /* max-height: 12rem; */
-  padding-bottom: 16px;
+  /* padding-bottom: 16px; */
   padding: 0px 10px 16px 10px;
+}
+
+.open h2 {
+  margin-top: 1px;
 }
 
 .closed {
@@ -234,5 +286,10 @@ main a {
 
 .closed h2 {
   /* width: fit-content; */
-  padding: 3px 10px;
+  /* padding: 3px 10px; */
+  padding: 3px 10px 3px 0px;
+}
+
+.seleccionable {
+  user-select: text;
 }
