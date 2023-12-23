@@ -1,8 +1,30 @@
-import { Link } from "react-router-dom";
-import Colapsible from "../components/Colapsible.jsx";
+import { useEffect, useState } from "react";
 import Menu from "../components/Menu.jsx";
+import { Link } from "react-router-dom";
+import CopyToClipboard from "react-copy-to-clipboard";
+import { Tooltip } from 'react-tooltip';
+// import Colapsible from "../components/Colapsible.jsx";
+
+const CHECKS = 7;
+const checksArray = new Array(CHECKS).fill(false);
 
 export default function PostInstall() {
+  const [checks, setChecks] = useState(checksArray);
+
+  useEffect(() => {
+    const checksLS = JSON.parse(localStorage.getItem("checksPost"));
+    if (checksLS != null) {
+      setChecks(checksLS);
+      // console.log("seteando checks al cargar pag: " + checksLS);
+    }
+  }, []);
+
+  function setCheck(index) {
+    checks.splice(index,1,true);  //reemplazo el elemento ubicado en 'index' por true
+    setChecks([...checks]);
+    localStorage.setItem("checksPost",  JSON.stringify(checks));
+  }
+
   return (
     <div className="container">
       <Menu />
@@ -21,16 +43,16 @@ export default function PostInstall() {
           <h2>1. Navegador & Drivers</h2>
           <p>Instalar un navegador utilizando los accesos directos proporcionados previamente. En caso de preferir un navegador diferente, usar Edge para descargarlo.</p>
           <br />
-          <p>Instalar uBlock Origin, bloqueador de anuncios por excelencia <Link to="http://addons.mozilla.org/es/firefox/addon/ublock-origin/" target="_blank">para Firefox</Link> o <Link to="http://chromewebstore.google.com/search/ublock?hl=es" target="_blank">para Chrome</Link>.</p>
+          <p>Instalar uBlock Origin, bloqueador de anuncios por excelencia <Link to="http://addons.mozilla.org/es/firefox/addon/ublock-origin/" target="_blank" onClick={()=>setCheck(0)}>para Firefox</Link> o <Link to="http://chromewebstore.google.com/search/ublock?hl=es" target="_blank" onClick={()=>setCheck(0)}>para Chrome</Link>. {checks[0]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Desinstalar Edge usando este <a href="downloads/Desinstalar Edge.bat" download>script</a>. (credits to <Link to="https://github.com/AveYo" target="_blank">AveYo</Link>)</p>
+          <p>Desinstalar Edge usando este <a href="downloads/Desinstalar Edge.bat" download onClick={()=>setCheck(1)}>script</a>. (credits to <Link to="https://github.com/AveYo" target="_blank">AveYo</Link>) {checks[1]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Instalar drivers pertinentes.</p>
           <br />
           <p>Reiniciar.</p>
 
           <h2>2. WinRAR & dependientes de Windows Update</h2>
-          <p>Ajustar los efectos visuales, mediante el acceso directo o bien ejecutando <em className="seleccionable">SystemPropertiesPerformance</em>.</p>
+          <p>Ajustar los efectos visuales mediante el acceso directo, o bien ejecutando <CopyToClipboard text="SystemPropertiesPerformance"><em className="pointer" data-tooltip-id="copy" data-tooltip-content="Click para copiar" data-tooltip-variant="info">SystemPropertiesPerformance</em></CopyToClipboard>.</p>
           <br />
           <p>Seleccionar la opción de rendimiento y luego habilitar:</p>
           <ul>
@@ -38,19 +60,19 @@ export default function PostInstall() {
             <li>Suavizar bordes para fuentes</li>
           </ul>
           <br />
-          <p>Descargar <Link to="http://www.winrar.es/descargas/winrar" target="_blank">WinRAR <img className="img-link" src="ext-link.png"/></Link> y también su <a href="downloads/rarreg.key" download>licencia</a>. Instalar.</p>
+          <p>Descargar <Link to="http://www.winrar.es/descargas/winrar" target="_blank">WinRAR <img className="img-link" src="ext-link.png"/></Link> y también su <a href="downloads/rarreg.key" download onClick={()=>setCheck(2)}>licencia</a>. Instalar. {checks[2]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Descargar e instalar <Link to="http://www.mediafire.com/file/zevsc78xiatv8gs/dotnetfx35.exe/file" target="_blank">.NET Framework 3.5</Link>.</p>
+          <p>Descargar e instalar <Link to="http://www.mediafire.com/file/zevsc78xiatv8gs/dotnetfx35.exe/file" target="_blank" onClick={()=>setCheck(3)}>.NET Framework 3.5</Link>. {checks[3]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Descargar e instalar <Link to="http://www.mediafire.com/file/5kas7ghc2tpd312/dotnet_4.8.1_-_KB5011048_x64.msu/file" target="_blank">.NET Framework 4.8.1</Link>.</p>
+          <p>Descargar e instalar <Link to="http://www.mediafire.com/file/5kas7ghc2tpd312/dotnet_4.8.1_-_KB5011048_x64.msu/file" target="_blank" onClick={()=>setCheck(4)}>.NET Framework 4.8.1</Link>. {checks[4]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Deshabilitar UAC utilizando este archivo <a href="downloads/W10 - Deshabilitar UAC.reg" download>.reg</a>.</p>
+          <p>Deshabilitar UAC utilizando este archivo <a href="downloads/W10 - Deshabilitar UAC.reg" download onClick={()=>setCheck(5)}>.reg</a>. {checks[5]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Activar Windows mediante <a href="downloads/Activar Windows 10 (HWID).cmd" download>HWID</a> o alternativamente <a href="downloads/Activar Windows 10 (KMS38).cmd" download>KMS</a>.</p>
+          <p>Activar Windows mediante <a href="downloads/Activar Windows 10 (HWID).cmd" download onClick={()=>setCheck(6)}>HWID</a> o alternativamente <a href="downloads/Activar Windows 10 (KMS38).cmd" download onClick={()=>setCheck(6)}>KMS</a>. {checks[6]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Reiniciar.</p>
 
-          <h2>3. Updates AFUERA. Runtimes restantes y Optimización</h2>
+          <h2>3. Windows Update AFUERA. Runtimes restantes & Optimización</h2>
           <p>Descargar <a href="downloads/Windows Update Blocker.7z" download>Windows Update Blocker</a>. Checkear <em>Proteger Servicios</em> y deshabilitar actualizaciones.</p>
           <br />
           <p>Descargar e instalar <a href="downloads/Visual C++ AIO.exe" download>Visual C++ AIO</a>.</p>
@@ -59,7 +81,7 @@ export default function PostInstall() {
           <br />
           <p>Descargar mi personalización para el <a href="downloads/Limpiar Menú Inicio 4.0.7z" download>Menú Inicio</a>. Extraer la carpeta y ejecutar "Limpiar Menú Inicio".</p>
           <br />
-          <p>Iniciar la herramienta de Chris Titus mediante el <a href="downloads/Chris Titus Windows Utility.lnk" download>acceso directo</a>.</p>
+          <p>Iniciar la herramienta de Chris Titus mediante el acceso directo, o bien introduciendo el siguiente comando en PowerShell: <CopyToClipboard text="iwr -useb https://christitus.com/win | iex"><em className="pointer" data-tooltip-id="copy" data-tooltip-content="Click para copiar" data-tooltip-variant="info">iwr -useb https://christitus.com/win | iex</em></CopyToClipboard></p>
           <br />
           <p>En la sección de <em>Tweaks</em>, seleccionar <em>Desktop</em> o <em>Laptop</em> según corresponda. Además:</p>
           <ul>
@@ -74,6 +96,7 @@ export default function PostInstall() {
 
           <br />
           <br />
+          <Tooltip id="copy"/>
         </main>
       </div>
     </div>

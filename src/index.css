@@ -18,6 +18,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --rt-opacity: 1 !important;
+  --rt-transition-show-delay: 0.16s !important;
+  --rt-color-info: #332945 !important;
 }
 
 a {
@@ -292,4 +296,8 @@ main a {
 
 .seleccionable {
   user-select: text;
+}
+
+.pointer {
+  cursor: pointer;
 }
