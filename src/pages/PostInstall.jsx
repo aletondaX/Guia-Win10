@@ -15,14 +15,22 @@ export default function PostInstall() {
     const checksLS = JSON.parse(localStorage.getItem("checksPost"));
     if (checksLS != null) {
       setChecks(checksLS);
-      // console.log("seteando checks al cargar pag: " + checksLS);
     }
+    const lastViewLS = JSON.parse(localStorage.getItem("lastView"));
+    // console.log(lastViewLS);
+    if (lastViewLS != null) {
+      if (lastViewLS[0] == 2) {
+        // console.log("existe en local storage indice guardado y corresponde a pag 2");
+        document.getElementById(lastViewLS[1]).scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    } 
   }, []);
 
   function setCheck(index) {
     checks.splice(index,1,true);  //reemplazo el elemento ubicado en 'index' por true
     setChecks([...checks]);
     localStorage.setItem("checksPost",  JSON.stringify(checks));
+    localStorage.setItem("lastView",  JSON.stringify([2, index]));
   }
 
   return (
@@ -43,9 +51,9 @@ export default function PostInstall() {
           <h2>1. Navegador & Drivers</h2>
           <p>Instalar un navegador utilizando los accesos directos proporcionados previamente. En caso de preferir un navegador diferente, usar Edge para descargarlo.</p>
           <br />
-          <p>Instalar uBlock Origin, bloqueador de anuncios por excelencia <Link to="http://addons.mozilla.org/es/firefox/addon/ublock-origin/" target="_blank" onClick={()=>setCheck(0)}>para Firefox</Link> o <Link to="http://chromewebstore.google.com/search/ublock?hl=es" target="_blank" onClick={()=>setCheck(0)}>para Chrome</Link>. {checks[0]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="0">Instalar uBlock Origin, bloqueador de anuncios por excelencia <Link to="http://addons.mozilla.org/es/firefox/addon/ublock-origin/" target="_blank" onClick={()=>setCheck(0)}>para Firefox</Link> o <Link to="http://chromewebstore.google.com/search/ublock?hl=es" target="_blank" onClick={()=>setCheck(0)}>para Chrome</Link>. {checks[0]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Desinstalar Edge usando este <a href="downloads/Desinstalar Edge.bat" download onClick={()=>setCheck(1)}>script</a>. (credits to <Link to="https://github.com/AveYo" target="_blank">AveYo</Link>) {checks[1]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="1">Desinstalar Edge usando este <a href="downloads/Desinstalar Edge.bat" download onClick={()=>setCheck(1)}>script</a>. (credits to <Link to="https://github.com/AveYo" target="_blank">AveYo</Link>) {checks[1]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Instalar drivers pertinentes.</p>
           <br />
@@ -60,15 +68,15 @@ export default function PostInstall() {
             <li>Suavizar bordes para fuentes</li>
           </ul>
           <br />
-          <p>Descargar <Link to="http://www.winrar.es/descargas/winrar" target="_blank">WinRAR <img className="img-link" src="ext-link.png"/></Link> y también su <a href="downloads/rarreg.key" download onClick={()=>setCheck(2)}>licencia</a>. Instalar. {checks[2]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="2">Descargar <Link to="http://www.winrar.es/descargas/winrar" target="_blank">WinRAR <img className="img-link" src="ext-link.png"/></Link> y también su <a href="downloads/rarreg.key" download onClick={()=>setCheck(2)}>licencia</a>. Instalar. {checks[2]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Descargar e instalar <Link to="http://www.mediafire.com/file/zevsc78xiatv8gs/dotnetfx35.exe/file" target="_blank" onClick={()=>setCheck(3)}>.NET Framework 3.5</Link>. {checks[3]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="3">Descargar e instalar <Link to="http://www.mediafire.com/file/zevsc78xiatv8gs/dotnetfx35.exe/file" target="_blank" onClick={()=>setCheck(3)}>.NET Framework 3.5</Link>. {checks[3]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Descargar e instalar <Link to="http://www.mediafire.com/file/5kas7ghc2tpd312/dotnet_4.8.1_-_KB5011048_x64.msu/file" target="_blank" onClick={()=>setCheck(4)}>.NET Framework 4.8.1</Link>. {checks[4]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="4">Descargar e instalar <Link to="http://www.mediafire.com/file/5kas7ghc2tpd312/dotnet_4.8.1_-_KB5011048_x64.msu/file" target="_blank" onClick={()=>setCheck(4)}>.NET Framework 4.8.1</Link>. {checks[4]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Deshabilitar UAC utilizando este archivo <a href="downloads/W10 - Deshabilitar UAC.reg" download onClick={()=>setCheck(5)}>.reg</a>. {checks[5]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="5">Deshabilitar UAC utilizando este archivo <a href="downloads/W10 - Deshabilitar UAC.reg" download onClick={()=>setCheck(5)}>.reg</a>. {checks[5]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Activar Windows mediante <a href="downloads/Activar Windows 10 (HWID).cmd" download onClick={()=>setCheck(6)}>HWID</a> o alternativamente <a href="downloads/Activar Windows 10 (KMS38).cmd" download onClick={()=>setCheck(6)}>KMS</a>. {checks[6]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="6">Activar Windows mediante <a href="downloads/Activar Windows 10 (HWID).cmd" download onClick={()=>setCheck(6)}>HWID</a> o alternativamente <a href="downloads/Activar Windows 10 (KMS38).cmd" download onClick={()=>setCheck(6)}>KMS</a>. {checks[6]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Reiniciar.</p>
 

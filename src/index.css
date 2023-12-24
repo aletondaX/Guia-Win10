@@ -94,7 +94,7 @@ p {
   justify-content: center;
 }
 
-.hero h1 {
+.hero-h1 {
   opacity: 0;
   animation-name: opacityOn;
   animation-duration: 1.5s;
@@ -103,7 +103,7 @@ p {
   animation-iteration-count: 1;
 }
 
-.hero h2 {
+.hero-h2 {
   opacity: 0;
   animation-name: opacityOn;
   animation-duration: 1.5s;
@@ -112,7 +112,7 @@ p {
   animation-iteration-count: 1;
 }
 
-#logo {
+.logo {
   width: 64px;
   margin: 2rem;
   opacity: 0;
@@ -135,6 +135,11 @@ p {
   100% {
       opacity: 1;
   }
+}
+
+.short {
+  animation-duration: 0.8s;
+  animation-delay: 0.2s;
 }
 
 .container {

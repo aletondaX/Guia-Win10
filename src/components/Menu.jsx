@@ -9,7 +9,7 @@ export default function Menu() {
       <NavLink to="/preinstall">Pre-Instalación</NavLink>
       <NavLink to="/postinstall">Post-Instalación</NavLink>
       <NavLink to="/extras">Extras</NavLink>
-      <NavLink to="/fixes">Solución de Problemas</NavLink>
+      <NavLink to="/troubleshooting">Solución de Problemas</NavLink>
       <NavLink to="/acerca">Acerca del Autor</NavLink>
       <hr />
     </nav>

@@ -29,7 +29,7 @@ const router = createHashRouter([
     element: <Extras />
   },
   {
-    path: "/fixes",
+    path: "/troubleshooting",
     element: <Fixes />
   },
   {
