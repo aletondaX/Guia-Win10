@@ -69,8 +69,8 @@ p {
   transition: 0.25s;
   opacity: 0;
   animation-name: opacityOn;
-  animation-duration: 2.5s;
-  animation-delay: 2.5s;
+  animation-duration: 2s;
+  animation-delay: 2.7s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
@@ -107,7 +107,7 @@ p {
   opacity: 0;
   animation-name: opacityOn;
   animation-duration: 1.5s;
-  animation-delay: 1.5s;
+  animation-delay: 1.6s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
@@ -117,8 +117,8 @@ p {
   margin: 2rem;
   opacity: 0;
   animation-name: opacityOn;
-  animation-duration: 2.5s;
-  animation-delay: 2.5s;
+  animation-duration: 2s;
+  animation-delay: 2.7s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
@@ -215,6 +215,7 @@ iframe {
 
 br {
   height: 1rem;
+  /* font-size: 0%; */
 }
 
 main a {
@@ -242,7 +243,7 @@ main a {
 .click-to-expand {
   font-size: 0.9rem;
   position: relative;
-  top: 1px;
+  top: 2px;
   /* left: 6px; */
 }
 

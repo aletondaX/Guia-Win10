@@ -18,5 +18,6 @@ La idea del sitio es:
 
 # To-Do
 
+  - Agregar los archivos para deshabilitar la escritura de logs etl.
   - Mergear la configuración del CTT en mi archivo de config de servicios.
   - A futuro: crear una aplicación que ofrezca una GUI para la configuración de servicios.

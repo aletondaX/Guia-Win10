@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
   // }, []);
 
   function redir() {
-    if (lastViewLS != null) {
+    if (lastViewLS !== null) {
       switch(lastViewLS[0]) {
         case 1: navigate("/preinstall"); break;
         case 2: navigate("/postinstall"); break;

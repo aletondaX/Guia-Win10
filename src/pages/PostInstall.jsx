@@ -5,7 +5,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { Tooltip } from 'react-tooltip';
 // import Colapsible from "../components/Colapsible.jsx";
 
-const CHECKS = 7;
+const CHECKS = 11;
 const checksArray = new Array(CHECKS).fill(false);
 
 export default function PostInstall() {
@@ -13,14 +13,12 @@ export default function PostInstall() {
 
   useEffect(() => {
     const checksLS = JSON.parse(localStorage.getItem("checksPost"));
-    if (checksLS != null) {
+    if (checksLS !== null) {
       setChecks(checksLS);
     }
     const lastViewLS = JSON.parse(localStorage.getItem("lastView"));
-    // console.log(lastViewLS);
-    if (lastViewLS != null) {
-      if (lastViewLS[0] == 2) {
-        // console.log("existe en local storage indice guardado y corresponde a pag 2");
+    if (lastViewLS !== null) {
+      if (lastViewLS[0] === 2) {
         document.getElementById(lastViewLS[1]).scrollIntoView({ behavior: "smooth", block: "center" });
       }
     } 
@@ -57,7 +55,8 @@ export default function PostInstall() {
           <br />
           <p>Instalar drivers pertinentes.</p>
           <br />
-          <p>Reiniciar.</p>
+          <p>Reiniciar el equipo.</p>
+          <br />
 
           <h2>2. WinRAR & dependientes de Windows Update</h2>
           <p>Ajustar los efectos visuales mediante el acceso directo, o bien ejecutando <CopyToClipboard text="SystemPropertiesPerformance"><em className="pointer" data-tooltip-id="copy" data-tooltip-content="Click para copiar" data-tooltip-variant="info">SystemPropertiesPerformance</em></CopyToClipboard>.</p>
@@ -78,16 +77,17 @@ export default function PostInstall() {
           <br />
           <p id="6">Activar Windows mediante <a href="downloads/Activar Windows 10 (HWID).cmd" download onClick={()=>setCheck(6)}>HWID</a> o alternativamente <a href="downloads/Activar Windows 10 (KMS38).cmd" download onClick={()=>setCheck(6)}>KMS</a>. {checks[6]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Reiniciar.</p>
+          <p>Reiniciar el equipo.</p>
+          <br />
 
-          <h2>3. Windows Update AFUERA. Runtimes restantes & Optimización</h2>
-          <p>Descargar <a href="downloads/Windows Update Blocker.7z" download>Windows Update Blocker</a>. Checkear <em>Proteger Servicios</em> y deshabilitar actualizaciones.</p>
+          <h2>3. Windows Update, librerías restantes & optimización</h2>
+          <p id="7">Descargar <a href="downloads/Windows Update Blocker.7z" download onClick={()=>setCheck(7)}>Windows Update Blocker</a>. Checkear <em>Proteger Servicios</em> y deshabilitar actualizaciones. {checks[7]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Descargar e instalar <a href="downloads/Visual C++ AIO.exe" download>Visual C++ AIO</a>.</p>
+          <p id="8">Descargar e instalar <a href="downloads/Visual C++ AIO.exe" download onClick={()=>setCheck(8)}>Visual C++ AIO</a>. {checks[8]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Descargar e instalar <Link to="http://www.mediafire.com/file/wezrn59gm9jefco/DirectX+9.7z/file" target="_blank">DirectX 9</Link>.</p>
+          <p id="9">Descargar e instalar <Link to="http://www.mediafire.com/file/wezrn59gm9jefco/DirectX+9.7z/file" target="_blank" onClick={()=>setCheck(9)}>DirectX 9</Link>. {checks[9]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Descargar mi personalización para el <a href="downloads/Limpiar Menú Inicio 4.0.7z" download>Menú Inicio</a>. Extraer la carpeta y ejecutar "Limpiar Menú Inicio".</p>
+          <p id="10">Descargar mi personalización para el <a href="downloads/Limpiar Menú Inicio 4.0.7z" download onClick={()=>setCheck(10)}>Menú Inicio</a>. Extraer la carpeta y ejecutar "Limpiar Menú Inicio". {checks[10]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Iniciar la herramienta de Chris Titus mediante el acceso directo, o bien introduciendo el siguiente comando en PowerShell: <CopyToClipboard text="iwr -useb https://christitus.com/win | iex"><em className="pointer" data-tooltip-id="copy" data-tooltip-content="Click para copiar" data-tooltip-variant="info">iwr -useb https://christitus.com/win | iex</em></CopyToClipboard></p>
           <br />
@@ -100,7 +100,64 @@ export default function PostInstall() {
           </ul>
           <p>Darle a <em>Run Tweaks</em> y esperar a que termine.</p>
           <br />
-          <p>Reiniciar.</p>
+          <p>Reiniciar el equipo.</p>
+          <br />
+
+          <h2>4. Telemetría</h2>
+          <p id="11">Descargar <a href="downloads/OOSU10.7z" download>O&OShutUp10++</a> y mi <a href="downloads/OOSU10 preset Ale.cfg" download>preset</a> para el mismo.</p>
+          <br />
+          <p>Abrir la aplicación y cargar el preset.</p>
+          <br />
+          <p>Reiniciar el equipo.</p>
+          <br />
+          <p id="12">Descargar <a href="downloads/WPD.7z" download>WPD</a> (Windows Privacy Dashboard).</p>
+          <br />
+          <p>Extraer la carpeta y abrir la aplicación.</p>
+          <br />
+
+          <h2>5. WinaeroTweaker</h2>
+          <p id="13">Descargar <a href="downloads/WinaeroTweaker.7z" download>WinaeroTweaker</a>.</p>
+          <br />
+          <p>Extraer la carpeta y abrir la aplicación.</p>
+          <br />
+          <ul>
+            <li>En la sección <em>Appearance</em>, activar <em>Classic Alt-Tab</em>.</li>
+            <li>Desmarcar ambas casillas de <em>Theme Behavior</em>.</li>
+            <br />
+            <li>En la sección <em>Behavior</em>, marcar todo dentro de <em>Ads and Unwanted Apps</em>.</li>
+            <li>Marcar <em>Disable App Lookup in Store</em>, <em>Disable Automatic Maintenance</em>, <em>Disable Downloads Blocking</em> y <em>Disable SmartScreen</em>.</li>
+            <li>Marcar <em>Disable User Folder Backup to OneDrive</em>, <em>Keep Thumbnail Cache</em> y <em>New Apps Notification</em>.</li>
+            <br />
+            <li>En la sección <em>Boot and Logon</em>, marcar <em>Disable Blur on Sign-in Screen</em>.</li>
+            <li>Marcar <em>Login Screen Image</em>.</li>
+            <br />
+            <li>En la sección <em>Desktop and Taskbar</em>, activar el <em>Classic Volume Mixer</em>.</li>
+            <li>Marcar <em>Disable Thumbnails Completely</em> en <em>Taskbar Thumbnails</em>.</li>
+            <br />
+            <li>En la sección <em>Context Menu</em>, dirigirse a <em>Remove Default Entries</em> y marcar las entradas de menú contextual a remover.</li>
+            <br />
+            <li>En la sección <em>File Explorer</em>, remover todo dentro de <em>Customize This PC Folders</em>.</li>
+            <li>Configurar un <em>Icon Cache Size</em> de 4096 KB.</li>
+            <li>En <em>Navigation Pane - Default Items</em>, desmarcar todo menos Acceso rápido y Este equipo.</li>
+            <br />
+            <li>En la sección <em>Windows Defender</em>, marcar <em>Disable Windows Defender</em>.</li>
+            <li>Desmarcar <em>Windows Security/Defender Tray Icon</em>.</li>
+            <br />
+            <li>En la sección <em>Windows Apps</em>, marcar <em>Disable auto-update of Store apps</em>.</li>
+            <li>Marcar <em>Disable Windows Ink workspace</em>.</li>
+            <br />
+            <li>En la sección <em>Power and Battery</em>, dirigirse a <em>Hibernation Options</em> y <em>Disable Hibernation</em>.</li>
+            <li>Marcar <em>Disable Power Throttling</em>. (solo en PCs de escritorio)</li>
+            <br />
+            <li>En la sección <em>Shortcuts</em>, marcar <em>Disable "- Shortcut" Text</em>.</li>
+            <br />
+            <li>En la sección <em>Get Classic Apps</em>, activar el <em>Windows Photo Viewer</em>.</li>
+          </ul>
+          <br />
+          <p>Reiniciar el equipo.</p>
+          <br />
+
+          <h2>6. Planes de Energía & Menú Inicio</h2>
 
           <br />
           <br />
