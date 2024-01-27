@@ -3,9 +3,9 @@ import Menu from "../components/Menu.jsx";
 import { Link } from "react-router-dom";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { Tooltip } from 'react-tooltip';
-// import Colapsible from "../components/Colapsible.jsx";
+import Colapsible from "../components/Colapsible.jsx";
 
-const CHECKS = 11;
+const CHECKS = 14;
 const checksArray = new Array(CHECKS).fill(false);
 
 export default function PostInstall() {
@@ -87,7 +87,7 @@ export default function PostInstall() {
           <br />
           <p id="9">Descargar e instalar <Link to="http://www.mediafire.com/file/wezrn59gm9jefco/DirectX+9.7z/file" target="_blank" onClick={()=>setCheck(9)}>DirectX 9</Link>. {checks[9]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p id="10">Descargar mi personalización para el <a href="downloads/Limpiar Menú Inicio 4.0.7z" download onClick={()=>setCheck(10)}>Menú Inicio</a>. Extraer la carpeta y ejecutar "Limpiar Menú Inicio". {checks[10]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="10">Descargar mi personalización para el <a href="downloads/Limpiar Menú Inicio.7z" download onClick={()=>setCheck(10)}>Menú Inicio</a>. Extraer la carpeta y ejecutar "Limpiar Menú Inicio". {checks[10]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Iniciar la herramienta de Chris Titus mediante el acceso directo, o bien introduciendo el siguiente comando en PowerShell: <CopyToClipboard text="iwr -useb https://christitus.com/win | iex"><em className="pointer" data-tooltip-id="copy" data-tooltip-content="Click para copiar" data-tooltip-variant="info">iwr -useb https://christitus.com/win | iex</em></CopyToClipboard></p>
           <br />
@@ -104,19 +104,19 @@ export default function PostInstall() {
           <br />
 
           <h2>4. Telemetría</h2>
-          <p id="11">Descargar <a href="downloads/OOSU10.7z" download>O&OShutUp10++</a> y mi <a href="downloads/OOSU10 preset Ale.cfg" download>preset</a> para el mismo.</p>
+          <p id="11">Descargar <a href="downloads/OOSU10.7z" download>O&OShutUp10++</a> y mi <a href="downloads/OOSU10 preset Ale.cfg" download onClick={()=>setCheck(11)}>preset</a> para el mismo. {checks[11]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Abrir la aplicación y cargar el preset.</p>
           <br />
           <p>Reiniciar el equipo.</p>
           <br />
-          <p id="12">Descargar <a href="downloads/WPD.7z" download>WPD</a> (Windows Privacy Dashboard).</p>
+          <p id="12">Descargar <a href="downloads/WPD.7z" download onClick={()=>setCheck(12)}>WPD</a> (Windows Privacy Dashboard). {checks[12]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Extraer la carpeta y abrir la aplicación.</p>
           <br />
 
           <h2>5. WinaeroTweaker</h2>
-          <p id="13">Descargar <a href="downloads/WinaeroTweaker.7z" download>WinaeroTweaker</a>.</p>
+          <p id="13">Descargar <a href="downloads/WinaeroTweaker.7z" download onClick={()=>setCheck(13)}>WinaeroTweaker</a>. {checks[13]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Extraer la carpeta y abrir la aplicación.</p>
           <br />
@@ -158,6 +158,95 @@ export default function PostInstall() {
           <br />
 
           <h2>6. Planes de Energía & Menú Inicio</h2>
+          <p id="14">Descargar mi conjunto de <a href="downloads/Planes de Energía.7z" download onClick={()=>setCheck(14)}>planes de energía</a> personalizados. {checks[14]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <br />
+          <p>Extraer la carpeta e instalar los planes correspondientes.</p>
+          <br />
+          <p><em>Opcional:</em> ejecutar Switch Power Scheme para eliminar los planes de energía que no necesites.</p>
+          <br />
+          <p>Ingresar al Panel de Control, Opciones de Energía y seleccionar un plan apropiado.</p>
+          <br />
+          <p id="15">Descargar e instalar <a href="downloads/StartIsBack.7z" download onClick={()=>setCheck(15)}>StartIsBack</a>. {checks[15]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <br />
+          <p>Ingresar a su configuración y:</p>
+          <br />
+          <ul>
+            <li>Desmarcar <em>Mostrar Aplicaciones Modernas</em>. (x2)</li>
+            <li>Desmarcar <em>Resaltar programas recién instalados</em>.</li>
+            <li>Desmarcar <em>Buscar en carpetas públicas</em>.</li>
+            <li>Personalizar <em>Elementos del lado derecho</em>.</li>
+            <li>Elegir la apariencia deseada, en mi caso sería Der, Izq, Izq.</li>
+            <li>Desmarcar <em>Usar la Jump List</em>.</li>
+            <li>Marcar <em>No realizar prelanzamiento</em>. (x2)</li>
+          </ul>
+          <br />
+          <p>Alternativamente, pueden aplicar mi configuración personal con el archivo de registro provisto.</p>
+          <br />
+
+          {/* <h2>7. Configuración de Windows</h2> */}
+          <Colapsible header="7. Configuración de Windows">
+          <ul>
+            <li>En el apartado de Sistema - Pantalla, nos dirigimos a <em>Configuración de pantalla avanzada</em> y seleccionamos la frecuencia de actualización más alta.</li>
+            <li>Vamos un paso atrás, nos dirigimos a <em>Configuración de gráficos</em> y activamos la <em>Programación de GPU acelerada por hardware</em>.</li>
+            <br />
+            <li>En el apartado de Sonido, vamos a <em>Panel de control de sonido</em>.</li>
+            <li>Por cada dispositivo de reproducción y grabación, abrimos su configuración.</li>
+            <li>Deshabilitamos los complementos o mejoras, ajustamos el formato de audio y desactivamos el uso de <em>Modo exclusivo</em>.</li>
+            <li>En la pestaña de <em>Sonidos</em>, seleccionamos el perfil <em>Sin sonidos</em>. (recomendado)</li>
+            <li>En la pestaña de <em>Comunicaciones</em>, seleccionamos <em>No hacer nada</em>.</li>
+            <br />
+            <li>En el apartado de Notificaciones, activamos o desactivamos según queramos.</li>
+            <br />
+            <li>En el apartado de Experiencias Compartidas, deshabilitamos <em>Compartir entre dispositivos</em>.</li>
+            <br />
+            <li><em>Opcional:</em> En el apartado de Dispositivos - Mouse, desmarcamos <em>Desplazar ventanas inactivas al pasar el mouse por encima</em>.</li>
+            <li>En el apartado de Dispositivos - Escritura, desmarcamos todo.</li>
+            <br />
+            <li>Red e internet {">"} Propiedades {">"} publica/privada.</li>
+            <li>Cambiar opc. del adaptador {">"} deshabilitar cosas y NetBios.</li>
+            <li>Configurar {">"} No permitir apagado. (solo PC)</li>
+            <br />
+            <li>En el apartado de Personalización - Colores, desactivamos <em>Efectos de transparencia</em>.</li>
+            <br />
+            <li>En el apartado de Menú Inicio, desactivamos <em>Mostrar aplicaciones agregadas recientemente</em>.</li>
+            <br />
+            <li>En el apartado de Aplicaciones, vamos a <em>Características opcionales</em> y desinstalamos todo menos Bloc de notas, Internet Explorer, Paint y Reproductor de Windows Media.</li>
+            <br />
+            <li>En el apartado de Cuentas, seleccionamos una imagen para nuestra cuenta.</li>
+            <br />
+            <li>En el apartado de Sincronizar la configuración, desactivamos todo.</li>
+            <br />
+            <li>En el apartado de Hora e idioma, seleccionamos nuestra zona horaria y damos a <em>Sincronizar ahora</em>.</li>
+            <br />
+            <li>Buscamos <em>'Región'</em> en el menú inicio, y seleccionamos el formato de datos adecuado.</li>
+            <br />
+            <li>En el apartado de Juegos, nos aseguramos de desactivar todo en Xbox Game bar.</li>
+            <li>También activamos el <em>Modo de juego</em> dentro de la sección homónima.</li>
+            <br />
+            <li>En el apartado de Accesibilidad - Narrador, lo desactivamos y no permitimos su inicio mediante teclas.</li>
+            <br />
+            <li>En el apartado de Teclado, desactivamos el uso de <em>Teclas especiales</em>, <em>Teclas de alternancia</em> y <em>Teclas filtro</em>.</li>
+            <li>Buscamos <em>'teclado filtro'</em> en el menú inicio, y desactivamos todos los tipos de teclas especiales y sus métodos de activación por teclado.</li>
+            <br />
+            <li>En el apartado Buscar, desactivamos el <em>Historial</em>.</li>
+            <br />
+            <li>En el apartado de Actualización y Seguridad, vamos a Seguridad - Firewall - Configuración avanzada - Propiedades, y desactivamos el Firewall para los 3 tipos de red.</li>
+            <br />
+            <li>Nos dirigimos a las Propiedades del sistema mediante menú inicio - <em>Sistema</em>.</li>
+            <li>Dentro de las opciones avanzadas, configuramos la memoria virtual a un tamaño fijo personalizado, según nuestra cantidad de RAM y capacidad de almacenamiento.</li>
+            <li>En la pestaña <em>Protección del sistema</em>, damos en <em>Configurar</em> y deshabilitamos la protección del sistema. No realices este paso si querés mantener los puntos de recuperación.</li>
+            <li>En la pestaña <em>Acceso Remoto</em>, nos aseguramos de NO permitir las conexiones remotas.</li>
+            <li>En la pestaña <em>Nombre de equipo</em>, cambiamos el nombre de ser necesario.</li>
+            <li>En la pestaña de <em>Hardware</em>, deshabilitamos la descarga automática de drivers.</li>
+            <br />
+            <li>Nos dirigimos a Este equipo - propiedades del disco C:, desactivamos la indexación y aplicamos.</li>
+            <li>Dentro de la pestaña Herramientas - Optimizar, cambiamos la configuración para optimizar mensualmente.</li>
+            <br />
+            <li>Ingresamos a las Opciones de carpeta, nos dirigimos a la pestaña Buscar, y marcamos <em>No usar el índice(...)</em>.</li>
+            <br />
+            <li>En caso de estar en una PC de escritorio: Abrimos el Administrador de dispositivos, buscamos <em>Controladoras de bus serie universal</em>, damos doble click a cada uno, y en la pestaña Administración de energía, desmarcamos <em>Permitir que el equipo apague este dispositivo</em>.</li>
+          </ul>
+          </Colapsible>
 
           <br />
           <br />

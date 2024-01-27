@@ -27,10 +27,10 @@ export default function Intro() {
             <li>Windows realizando tareas que el usuario nunca pidió, muchas veces en momentos inoportunos para el usuario.</li>
             <li>Windows interviniendo en la intención del usuario. Por ejemplo, impidiendo descargas o bloqueando la eliminación de archivos.</li>
           </ul>
-          <p>Por esto y más, considero que Windows 7 fue la última buena versión de Windows.</p>
+          {/* <p>Por esto y más, considero que Windows 7 fue la última buena versión de Windows.</p> */}
 
           <h2>El Objetivo</h2>
-          <p>El objetivo de esta guía es corregir aspectos negativos de Windows 10, obteniendo como resultado un sistema operativo con un comportamiento mucho más similar al de Windows 7, pero manteniendo la compatibilidad de hardware y software que Windows 10 posée.</p>
+          <p>Por varios motivos, considero que Windows 7 fue la última buena versión de Windows. El objetivo de esta guía es corregir aspectos negativos de Windows 10, obteniendo como resultado un sistema operativo con un comportamiento mucho más similar al de Windows 7, pero manteniendo la compatibilidad de hardware y software que Windows 10 posée.</p>
 
           <h2>Ya existen otras guías...</h2>
           <p>Existen varias guías y muy buenas. La diferencia está en que:</p>
@@ -50,7 +50,7 @@ export default function Intro() {
           </ul>
 
           <h2>Windows 10 LTSC</h2>
-          <p>Es una edición oficial de Windows 10, a mi modo de ver, la mejor y única edición de Windows 10 que debió existir. Las actualizaciones son contadas con los dedos de una mano, y estas nunca son actualizaciones de características, conocidas por alterar (romper) el SO.</p>
+          <p>Es una edición oficial de Windows 10, y a mi modo de ver, la mejor y única edición de Windows 10 que debió existir. Las actualizaciones son contadas con los dedos de una mano, y estas nunca son actualizaciones de características, conocidas por alterar (romper) el SO.</p>
           <p>Además, como teóricamente es una edición destinada a empresas, la misma no incluye la Microsoft Store ni ninguna de sus aplicaciones. Tampoco incluye características innecesarias como Cortana.</p>
           <p>Pese a ser orientada a empresas, fuera del uso de la MS Store no hay nada que no podamos hacer. Es básicamente una versión mucho menos cargada de Windows.</p>
 
