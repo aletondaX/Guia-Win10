@@ -5,7 +5,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { Tooltip } from 'react-tooltip';
 import Colapsible from "../components/Colapsible.jsx";
 
-const CHECKS = 14;
+const CHECKS = 18;
 const checksArray = new Array(CHECKS).fill(false);
 
 export default function PostInstall() {
@@ -89,7 +89,7 @@ export default function PostInstall() {
           <br />
           <p id="10">Descargar mi personalización para el <a href="downloads/Limpiar Menú Inicio.7z" download onClick={()=>setCheck(10)}>Menú Inicio</a>. Extraer la carpeta y ejecutar "Limpiar Menú Inicio". {checks[10]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Iniciar la herramienta de Chris Titus mediante el acceso directo, o bien introduciendo el siguiente comando en PowerShell: <CopyToClipboard text="iwr -useb https://christitus.com/win | iex"><em className="pointer" data-tooltip-id="copy" data-tooltip-content="Click para copiar" data-tooltip-variant="info">iwr -useb https://christitus.com/win | iex</em></CopyToClipboard></p>
+          <p>Iniciar la herramienta de Chris Titus mediante el acceso directo, o bien ejecutando el siguiente comando en PowerShell: <CopyToClipboard text="iwr -useb https://christitus.com/win | iex"><em className="pointer" data-tooltip-id="copy" data-tooltip-content="Click para copiar" data-tooltip-variant="info">iwr -useb https://christitus.com/win | iex</em></CopyToClipboard></p>
           <br />
           <p>En la sección de <em>Tweaks</em>, seleccionar <em>Desktop</em> o <em>Laptop</em> según corresponda. Además:</p>
           <ul>
@@ -245,9 +245,24 @@ export default function PostInstall() {
             <li>Ingresamos a las Opciones de carpeta, nos dirigimos a la pestaña Buscar, y marcamos <em>No usar el índice(...)</em>.</li>
             <br />
             <li>En caso de estar en una PC de escritorio: Abrimos el Administrador de dispositivos, buscamos <em>Controladoras de bus serie universal</em>, damos doble click a cada uno, y en la pestaña Administración de energía, desmarcamos <em>Permitir que el equipo apague este dispositivo</em>.</li>
+            <br />
+            <li>Ingresar a <em>Opciones de Internet</em> desde el menú inicio. Pestaña Seguridad - Internet - Nivel personalizado. Habilitar <em>Ejecutar aplicaciones y archivos no seguros</em>.</li>
           </ul>
           </Colapsible>
 
+          <h2>8. Configurar servicios & tweaks  del Registro</h2>
+          <p id="16">Descargar y ejecutar mi <a href="downloads/W10 - Config Servicios.bat" download onClick={()=>setCheck(16)}>archivo</a> de configuración de servicios para Windows 10. {checks[16]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <br />
+          <p>En primera instancia, este archivo realiza una configuración básica (segura). Luego nos ofrece recortes adicionales de servicios, que por el momento vamos a dejar para más adelante. Al finalizar podemos reiniciar el equipo o bien seguir con el paso siguiente.</p>
+          <br />
+          <p id="17">Descargar y ejecutar mi <a href="downloads/W10 - Tweaks Registro.bat" download onClick={()=>setCheck(17)}>archivo</a> de tweaks del Registro. Nos preguntará si estamos usando una PC de Escritorio o una Notebook. Elegimos y esperamos a que finalice. {checks[17]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <br />
+          <p>Reiniciar el equipo.</p>
+          <br />
+          <h3>Con esto damos por finalizada la configuración básica de nuestro sistema.</h3>
+          <h3>Los espero en la sección de Extras para más configuración y optimización.</h3>
+
+          <br />
           <br />
           <br />
           <Tooltip id="copy"/>

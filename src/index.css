@@ -285,7 +285,7 @@ main a {
 
 .closed {
   /* border: 1px solid blue; */
-  max-height: 4rem;
+  max-height: 2.8rem;
   /* overflow-y: hidden; */
   line-height: 0;
 }
