@@ -104,15 +104,15 @@ export default function PostInstall() {
           <br />
 
           <h2>4. Telemetría</h2>
-          <p id="11">Descargar <a href="downloads/OOSU10.7z" download>O&OShutUp10++</a> y mi <a href="downloads/OOSU10 preset Ale.cfg" download onClick={()=>setCheck(11)}>preset</a> para el mismo. {checks[11]?<img className="img-ok" src="ok.png"/>:<></>}</p>
-          <br />
-          <p>Abrir la aplicación y cargar el preset.</p>
+          <p id="11">Descargar <a href="downloads/OOSU10.7z" download>O&OShutUp10++</a> y mi <a href="downloads/OOSU10 preset Ale.cfg" download onClick={()=>setCheck(11)}>preset</a> para el mismo. Abrir la aplicación y cargar el preset. {checks[11]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Reiniciar el equipo.</p>
           <br />
-          <p id="12">Descargar <a href="downloads/WPD.7z" download onClick={()=>setCheck(12)}>WPD</a> (Windows Privacy Dashboard). {checks[12]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="12">Descargar <a href="downloads/WPD.7z" download onClick={()=>setCheck(12)}>WPD</a> (Windows Privacy Dashboard). Extraer la carpeta y abrir la aplicación. {checks[12]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>Extraer la carpeta y abrir la aplicación.</p>
+          <p>En el recuadro de <em>Telemetry</em>, darle click a Desactivar. En el recuadro de <em>Telemetry IPs</em>, darle click a Block.</p>
+          <br />
+          <p>Reiniciar el equipo.</p>
           <br />
 
           <h2>5. WinaeroTweaker</h2>
@@ -202,9 +202,12 @@ export default function PostInstall() {
             <li><em>Opcional:</em> En el apartado de Dispositivos - Mouse, desmarcamos <em>Desplazar ventanas inactivas al pasar el mouse por encima</em>.</li>
             <li>En el apartado de Dispositivos - Escritura, desmarcamos todo.</li>
             <br />
-            <li>Red e internet {">"} Propiedades {">"} publica/privada.</li>
-            <li>Cambiar opc. del adaptador {">"} deshabilitar cosas y NetBios.</li>
-            <li>Configurar {">"} No permitir apagado. (solo PC)</li>
+            <li>En el apartado de Red e internet, nos dirigimos a Propiedades, y seleccionamos Pública.</li>
+            <br />
+            <li>Vamos a <em>Cambiar opciones del adaptador</em> y abrimos las propiedades de nuestra red. Desmarcamos todo menos Protocolo IPv4 y Programador de paquetes QoS.</li>
+            <li>Vamos a las propiedades del Protocolo IPv4, Opciones avanzadas, pestaña WINS y deshabilitamos NetBIOS. Aceptamos en todas las ventanas.</li>
+            <br />
+            <li>Si nos encontramos en una PC de escritorio, volvemos a abrir las propiedades de nuestra red, y hacemos click en el botón Configurar, vamos a la pestaña de Administración de Energía, y desmarcamos la opción de permitir apagado.</li>
             <br />
             <li>En el apartado de Personalización - Colores, desactivamos <em>Efectos de transparencia</em>.</li>
             <br />
@@ -253,7 +256,12 @@ export default function PostInstall() {
           <h2>8. Configurar servicios & tweaks  del Registro</h2>
           <p id="16">Descargar y ejecutar mi <a href="downloads/W10 - Config Servicios.bat" download onClick={()=>setCheck(16)}>archivo</a> de configuración de servicios para Windows 10. {checks[16]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p>En primera instancia, este archivo realiza una configuración básica (segura). Luego nos ofrece recortes adicionales de servicios, que por el momento vamos a dejar para más adelante. Al finalizar podemos reiniciar el equipo o bien seguir con el paso siguiente.</p>
+          <ul>
+            <li>Nos preguntará si estamos usando una PC de Escritorio o una Notebook.</li>
+            <li>En primera instancia, realiza una configuración básica (segura).</li>
+            <li>Luego nos ofrece recortes adicionales de servicios, que por el momento vamos a dejar para más adelante.</li>
+          </ul>
+          <p>Al finalizar podemos reiniciar el equipo o bien seguir con el paso siguiente.</p>
           <br />
           <p id="17">Descargar y ejecutar mi <a href="downloads/W10 - Tweaks Registro.bat" download onClick={()=>setCheck(17)}>archivo</a> de tweaks del Registro. Nos preguntará si estamos usando una PC de Escritorio o una Notebook. Elegimos y esperamos a que finalice. {checks[17]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />

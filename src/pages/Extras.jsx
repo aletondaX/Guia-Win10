@@ -1,6 +1,33 @@
+import { useEffect, useState } from "react";
 import Menu from "../components/Menu.jsx";
+import { Link } from "react-router-dom";
+
+const CHECKS = 1;
+const checksArray = new Array(CHECKS).fill(false);
 
 export default function Extras() {
+  const [checks, setChecks] = useState(checksArray);
+
+  useEffect   (() => {
+    const checksLS = JSON.parse(localStorage.getItem("checksExtra"));
+    if (checksLS !== null) {
+      setChecks(checksLS);
+    }
+    const lastViewLS = JSON.parse(localStorage.getItem("lastView"));
+    if (lastViewLS !== null) {
+      if (lastViewLS[0] === 3) {
+        document.getElementById(lastViewLS[1]).scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    } 
+  }, []);
+
+  function setCheck(index) {
+    checks.splice(index,1,true);  //reemplazo el elemento ubicado en 'index' por true
+    setChecks([...checks]);
+    localStorage.setItem("checksExtra",  JSON.stringify(checks));
+    localStorage.setItem("lastView",  JSON.stringify([3, index]));
+  }
+
   return (
     <div className="container">
       <Menu />

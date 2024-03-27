@@ -1,18 +1,29 @@
 @echo off
 chcp 65001 >nul
-title Configuración de Servicios de Windows 10 by AleTonda
+title Configuración de Servicios para Windows 10 by AleTonda
 
-echo #######################################################
-echo  Configuración de Servicios de Windows 10 by AleTonda
-echo  [45m*Usar luego de la config de servicios de Chris Titus*[0m
-echo #######################################################
-echo.
+echo [45m                                                           [0m
+echo [45m  Configuración de Servicios para Windows 10, by AleTonda  [0m
+echo [45m                                                           [0m
+echo [45m   *Usar luego de la config de servicios de Chris Titus*   [0m
+echo [45m                                                           [0m
 
-pause
-
-echo.
-echo Configurando servicios e importando claves al registro...
 timeout /t 3 /nobreak >nul
+
+:seleccionPC
+echo.
+echo Selecciona tu tipo de PC:
+echo.
+echo 1. PC de Escritorio
+echo 2. Notebook
+echo.
+SET /P PC=Escribe [45m 1 [0m o [45m 2 [0m y presiona ENTER para continuar:
+
+IF %PC% NEQ 1 call :comprobacionDos
+
+echo.
+echo Configurando servicios...
+timeout /t 2 /nobreak >nul
 echo.
 
 echo - WaaSMedicSvc
@@ -115,6 +126,14 @@ echo - WinDefend
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\WinDefend" /v "Start" /t REG_DWORD /d "4" /f
 echo - MapsBroker
 sc config "MapsBroker" start=disabled
+IF %PC%==1 (
+echo - WlanSvc
+sc config "WlanSvc" start=disabled
+echo - WwanSvc
+sc config "WwanSvc" start=disabled
+echo - Wcmsvc
+sc config "Wcmsvc" start=disabled
+)
 echo.
 echo [45mOK![0m
 echo.
@@ -124,16 +143,7 @@ timeout /t 2 /nobreak >nul
 echo #######################################################
 echo.
 SET /P PRINT=Deshabilitar servicio Cola de Impresión? (Necesario para imprimir) (S/N):
-If /I %PRINT%==S sc config "Spooler" start=disabled
-echo.
-echo #######################################################
-echo.
-SET /P WIFI=Deshabilitar servicios necesarios para WiFi? [45m(Selecciona NO si usas una notebook)[0m (S/N):
-If /I %WIFI%==S (
-sc config "WlanSvc" start=disabled
-sc config "WwanSvc" start=disabled
-sc config "Wcmsvc" start=disabled
-)
+IF /I %PRINT%==S sc config "Spooler" start=disabled
 echo.
 echo #######################################################
 echo.
@@ -141,7 +151,7 @@ echo [45m¡ALERTA![0m
 echo Deshabilitar WpnUserService deshabilita las notificaciones de Windows.
 echo También rompe las siguientes settings: "Red" y "Asistente de Concentración".
 SET /P WPN=Deshabilitar WpnUserService? (S/N):
-If /I %WPN%==S (
+IF /I %WPN%==S (
 sc config "WpnUserService" start=disabled
 sc config "WpnService" start=disabled
 )
@@ -151,14 +161,14 @@ echo.
 echo [45m¡ALERTA![0m
 echo Deshabilitar AppXSvc rompe las siguientes settings: "Sistema > Acerca de".
 SET /P APPX=Deshabilitar AppXSvc? (S/N):
-If /I %APPX%==S reg add "HKLM\SYSTEM\CurrentControlSet\Services\AppXSvc" /v "Start" /t REG_DWORD /d "4" /f
+IF /I %APPX%==S reg add "HKLM\SYSTEM\CurrentControlSet\Services\AppXSvc" /v "Start" /t REG_DWORD /d "4" /f
 echo.
 echo #######################################################
 echo.
 echo [45m¡ALERTA![0m
 echo Deshabilitar TokenBroker rompe las siguientes settings: "Sistema > Portapapeles".
 SET /P TKN=Deshabilitar TokenBroker? (S/N):
-If /I %TKN%==S sc config "TokenBroker" start=disabled
+IF /I %TKN%==S sc config "TokenBroker" start=disabled
 echo.
 echo #######################################################
 echo.
@@ -166,10 +176,10 @@ REM echo [45m¡ALERTA![0m
 echo Es posible deshabilitar servicios adicionales, con el riesgo de que algunas aplicaciones dejen de funcionar. Esto incluye, por ejemplo, el uso de BlueTooth.
 echo Debido al riesgo, solo lo recomiendo para usuarios avanzados.
 SET /P EXTRA=Deshabilitar servicios adicionales? (S/N):
-If /I %EXTRA%==N (
-goto fin
+IF /I %EXTRA%==N (
+goto :fin
 )
-If /I %EXTRA%==S (
+IF /I %EXTRA%==S (
 echo - AppReadiness
 sc config "AppReadiness" start=disabled
 echo - StorSvc
@@ -252,12 +262,11 @@ sc config "EventSystem" start=disabled
 echo - SENS
 sc config "SENS" start=disabled
 echo.
-goto pcnote
+goto :soloPC
 )
 
-:pcnote
-SET /P PC=Es una PC de Escritorio(1) o una Notebook(2)? (Escribe 1 o 2 para continuar):
-If /I %PC%==1 (
+:soloPC
+IF /I %PC%==1 (
 echo - DisplayEnhancementService
 sc config "DisplayEnhancementService" start=disabled
 )
@@ -272,3 +281,9 @@ echo #######################################################
 echo.
 SET /P REINICIAR=Reiniciar el equipo? (S/N):
 If /I %REINICIAR%==S (shutdown -r -t 3) else exit
+
+:comprobacionDos
+IF %PC% NEQ 2 (
+cls
+goto :seleccionPC
+) ELSE goto :eof
