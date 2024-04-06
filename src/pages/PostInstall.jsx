@@ -5,7 +5,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { Tooltip } from 'react-tooltip';
 import Colapsible from "../components/Colapsible.jsx";
 
-const CHECKS = 18;
+const CHECKS = 17;
 const checksArray = new Array(CHECKS).fill(false);
 
 export default function PostInstall() {
@@ -75,7 +75,7 @@ export default function PostInstall() {
           <br />
           <p id="5">Deshabilitar UAC utilizando este archivo <a href="downloads/W10 - Deshabilitar UAC.reg" download onClick={()=>setCheck(5)}>.reg</a>. {checks[5]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
-          <p id="6">Activar Windows mediante <a href="downloads/Activar Windows 10 (HWID).cmd" download onClick={()=>setCheck(6)}>HWID</a> o alternativamente <a href="downloads/Activar Windows 10 (KMS38).cmd" download onClick={()=>setCheck(6)}>KMS</a>. {checks[6]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="6">Descargar estos <a href="downloads/Activar Windows 10.7z" download onClick={()=>setCheck(6)}>activadores</a> y activar Windows mediante HWID o alternativamente KMS. {checks[6]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
           <p>Reiniciar el equipo.</p>
           <br />
@@ -254,16 +254,17 @@ export default function PostInstall() {
           </Colapsible>
 
           <h2>8. Configurar servicios & tweaks  del Registro</h2>
-          <p id="16">Descargar y ejecutar mi <a href="downloads/W10 - Config Servicios.bat" download onClick={()=>setCheck(16)}>archivo</a> de configuración de servicios para Windows 10. {checks[16]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p id="16">Descargar mis <a href="downloads/W10 - Config Servicios & Registro.7z" download onClick={()=>setCheck(16)}>archivos</a> de configuración de servicios y registro para Windows 10. {checks[16]?<img className="img-ok" src="ok.png"/>:<></>}</p>
           <br />
+          <p>Ejecutar el archivo de configuración de servicios.</p>
           <ul>
             <li>Nos preguntará si estamos usando una PC de Escritorio o una Notebook.</li>
             <li>En primera instancia, realiza una configuración básica (segura).</li>
-            <li>Luego nos ofrece recortes adicionales de servicios, que por el momento vamos a dejar para más adelante.</li>
+            <li>Luego nos ofrece configuraciones adicionales de servicios, que por el momento vamos a dejar para más adelante.</li>
           </ul>
           <p>Al finalizar podemos reiniciar el equipo o bien seguir con el paso siguiente.</p>
           <br />
-          <p id="17">Descargar y ejecutar mi <a href="downloads/W10 - Tweaks Registro.bat" download onClick={()=>setCheck(17)}>archivo</a> de tweaks del Registro. Nos preguntará si estamos usando una PC de Escritorio o una Notebook. Elegimos y esperamos a que finalice. {checks[17]?<img className="img-ok" src="ok.png"/>:<></>}</p>
+          <p>Ejecutar el archivo de tweaks del Registro. Nos preguntará si estamos usando una PC de Escritorio o una Notebook. Elegimos y esperamos a que finalice.</p>
           <br />
           <p>Reiniciar el equipo.</p>
           <br />

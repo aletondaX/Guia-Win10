@@ -1,4 +1,0 @@
-*.bat		text working-tree-encoding=UTF-8
-*.cmd		text working-tree-encoding=UTF-8
-# *.bat		text eol=crlf
-# *.cmd   	text eol=crlf
