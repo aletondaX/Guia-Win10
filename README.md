@@ -6,7 +6,7 @@ Repositorio para el sitio web que complementa el video de instalación, configur
 
 El video en cuestión se encuentra [aquí](http://www.youtube.com/watch?v=2RC1d4_dW3Q)
 
-El sitio se encuentra publicado [aquí](https://aletondax.github.io/Guia-Win10/)
+El sitio se encuentra publicado [aquí](http://guiawin10.dev.ar/)
 
 La idea del sitio es:
 
